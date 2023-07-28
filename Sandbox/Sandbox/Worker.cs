@@ -1,8 +1,6 @@
 using Packages;
-using Sam.Packages;
-using System.Diagnostics;
 
-namespace AstralHorizon
+namespace Sandbox
 {
     public class Worker : BackgroundService
     {

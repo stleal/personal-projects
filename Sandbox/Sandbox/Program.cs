@@ -1,4 +1,4 @@
-using AstralHorizon;
+using Sandbox;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
