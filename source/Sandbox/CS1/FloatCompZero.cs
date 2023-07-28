@@ -1,18 +1,18 @@
 ﻿/************************************************************************
-
-	Carry out Programming Exercise 3.2 of the book.
-	Call your program FloatCompZero.
-
-	Write a program that reads a floating-point number and
-	prints "zero" if the number is zero. Otherwise, print "positive"
-	or "nevative". Add "small" if the absolute value of the number
-	is less than 1, or "large" if it exceeds 1,000,000.
-	it is negative, zero, or postive.
-
-	NAME: SAMIR LEAL
-	DATE: 3/11/2013
-	PROFESSOR: BOB CHEN @ 8:30AM M W
-
+*
+*	Carry out Programming Exercise 3.2 of the book.
+*	Call your program FloatCompZero.
+*
+*	Write a program that reads a floating-point number and
+*	prints "zero" if the number is zero. Otherwise, print "positive"
+*	or "nevative". Add "small" if the absolute value of the number
+*	is less than 1, or "large" if it exceeds 1,000,000.
+*	it is negative, zero, or postive.
+*
+*	NAME: SAMIR LEAL
+*	DATE: 3/11/2013
+*	PROFESSOR: BOB CHEN @ 8:30AM M W
+*
 ************************************************************************/
 namespace Sandbox.CS1
 {
@@ -29,7 +29,7 @@ namespace Sandbox.CS1
         public void Run(string[] args)
         {
 
-            // local variables 
+            // local variables  
             string type = string.Empty; 
 
             // parse the input from user 
