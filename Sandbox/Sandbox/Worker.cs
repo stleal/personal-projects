@@ -1,4 +1,5 @@
 using Packages;
+using Sandbox.CS1;
 
 namespace Sandbox
 {
@@ -7,6 +8,7 @@ namespace Sandbox
         private readonly ILogger<Worker> _logger;
         private Calculator calculator = new Calculator(); 
         private TwoSum twoSum = new TwoSum(); 
+        private FloatCompZero floatCompZero = new FloatCompZero(); 
 
         public Worker(ILogger<Worker> logger)
         {
@@ -41,7 +43,13 @@ namespace Sandbox
                         break;
                         case "calculator":
                             calculator.Run(args); 
-                        break; 
+                        break;
+                        case "floatcompzero":
+                            floatCompZero.Run(args); 
+                        break;
+                        case "exit": 
+                            Environment.Exit(0);
+                        break;
                     }
 
                 }
