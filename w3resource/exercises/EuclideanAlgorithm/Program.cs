@@ -8,6 +8,7 @@
 public class EuclideanAlgorithm
 {
 
+    // main 
     public static void Main(string[] args)
     {
 
@@ -30,15 +31,13 @@ public class EuclideanAlgorithm
     {
 
         // declare local variables 
-        int result = 0;
+        int result;
 
         // if a equals 0, then result = b 
-        if (a == 0)
-            result = b;
+        result = (a == 0) ? b : 0;
 
         // if b equals 0, then result = a 
-        if (b == 0)
-            result = a;
+        result = (b == 0) ? a : 0; 
 
         // return result 
         return result != 0 ? result : gcd(b, a % b); 
