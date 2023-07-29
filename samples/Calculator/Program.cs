@@ -30,4 +30,22 @@
         return x - y;
     }
 
+    // gets the sum of all the elements in an array 
+    public static int Sum(int[] nums)
+    {
+        
+        // declare local variables 
+        int sum = 0;
+
+        // gets the sum of the array 
+        for (int i = 0; i < nums.Length; i++)
+        {
+            sum += nums[i]; 
+        }
+
+        // returns the answer 
+        return sum; 
+
+    }
+
 }
