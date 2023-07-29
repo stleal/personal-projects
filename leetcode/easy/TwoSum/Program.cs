@@ -79,7 +79,7 @@ public class TwoSum
         }
 
         // returns the indices that add up to target or null if none 
-        return ((sum == target) && (found == true )) ? answer : null;
+        return ((sum == target) && (found == true)) ? answer : null;
 
     }
 
