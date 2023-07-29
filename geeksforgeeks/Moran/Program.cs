@@ -6,8 +6,6 @@
  * Moran numbers are a subset of Harshad numbers. A number N is a Moran number if N divided by 
  * the sum of its digits gives a prime number. For example some Moran numbers are 18, 21, 27, 42, 45 and so on.
  ********************************************************************************************/
-using System;
-
 public class Moran
 {
 
