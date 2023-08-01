@@ -1,6 +1,6 @@
-﻿using System.Data;
-using Infrastructure.Repositories; 
+﻿using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
@@ -9,18 +9,39 @@ public class ToDoTaskController : ControllerBase
 
     private WondersquadRepository _appRepository = new WondersquadRepository();
 
-    [HttpGet]
-    public string GetToDoTaskByTaskId(int id)
+    [HttpPost]
+    public string InsertToDoTask(ToDoTask entity)
     {
-        var result = _appRepository.GetToDoTaskByTaskId(id);
-        return result.TaskId == 0 ? "No tasks found matching that TaskId." : GenerateToDoTaskResult(result); 
+        var result = _appRepository.InsertToDoTask(entity);
+        return result > 0 ? "Succesfully inserted a record into the database. " : "Failed to INSERT into the database.";
     }
 
     [HttpPost]
-    public string GenerateToDoTaskResult(ToDoTask task)
+    public string InsertToDoTaskUsingStoredProcedure(ToDoTask entity)
     {
-        string output = "ToDoTask:\n\n" + "TaskId: " + task.TaskId + "\nUserId: " + task.UserId;
-        return output;
+        var result = _appRepository.InsertToDoTaskUsingStoredProcedure(entity);
+        return result > 0 ? "Succesfully inserted a record into the database. " : "Failed to INSERT into the database.";
+    }
+
+    [HttpGet]
+    public string GetToDoTaskByTaskId(int taskId)
+    {
+        var result = _appRepository.GetToDoTaskByTaskId(taskId);
+        return result.TaskId == 0 ? "No tasks found matching that TaskId." : JsonConvert.SerializeObject(result);
+    }
+
+    [HttpPut]
+    public string UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string notes)
+    {
+        var result = _appRepository.UpdateToDoTaskByTaskId(completionDate, taskId, notes);
+        return result > 0 ? "Succesfully updated a record in the database. " : "Failed to UPDATE the database.";
+    }
+
+    [HttpDelete]
+    public string DeleteToDoTaskByTaskId(int taskId)
+    {
+        var result = _appRepository.DeleteToDoTaskByTaskId(taskId);
+        return result > 0 ? "Succesfully deleted a record from the database. " : "Failed to DELETE from the database.";
     }
 
 }

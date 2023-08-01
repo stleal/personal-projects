@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-internal class ConnectionString
+public class ConnectionString
 {
 
-    private static string environment = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIORNMENT")) ?
-    Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") : "Development";
+    private static string environment = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")) ?
+    Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") : "Production";
     private static readonly IConfiguration configuration = new ConfigurationBuilder()
         .AddJsonFile("appsettings.json", optional: true)
         .AddJsonFile($"appsettings.{environment}.json", optional: false)
