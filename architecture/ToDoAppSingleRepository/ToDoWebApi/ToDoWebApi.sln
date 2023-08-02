@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "..\Infras
 		{EFF245DE-AB67-4B7B-B32C-46C6F6360D9A} = {EFF245DE-AB67-4B7B-B32C-46C6F6360D9A}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoAppWindowsForm", "..\ToDoAppWindowsForm\ToDoAppWindowsForm.csproj", "{1D823019-BB82-4E63-BEC0-DA9D5CCE9872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{99506A1B-F8A2-40F3-8F4A-DD6D49640AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99506A1B-F8A2-40F3-8F4A-DD6D49640AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99506A1B-F8A2-40F3-8F4A-DD6D49640AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D823019-BB82-4E63-BEC0-DA9D5CCE9872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D823019-BB82-4E63-BEC0-DA9D5CCE9872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D823019-BB82-4E63-BEC0-DA9D5CCE9872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D823019-BB82-4E63-BEC0-DA9D5CCE9872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
