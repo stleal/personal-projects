@@ -36,15 +36,14 @@
         // Read SQLs 
         public static string GetToDoTaskByTaskId(int taskId)
         {
-            string query = "SELECT * FROM ToDoTasks WITH(NOLOCK) WHERE [TaskId] = " + taskId; 
-            return query; 
+            return "SELECT * FROM ToDoTasks WITH(NOLOCK) WHERE [TaskId] = " + taskId; 
         }
 
         // Update SQLs 
-        public static string UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string notes)
+        public static string UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string completionNotes)
         {
             return "UPDATE ToDoTasks SET [CompletionDate] = '" + completionDate + "', [ModifiedDate] = '" + DateTime.Now.ToString() + 
-                "', [IsCompleted] = 1, [Notes] = '" + notes + "' WHERE [TaskId] = " + taskId; 
+                "', [IsCompleted] = 1, [CompletionNotes] = '" + completionNotes + "' WHERE [TaskId] = " + taskId; 
         }
 
         // DELETE SQLs 

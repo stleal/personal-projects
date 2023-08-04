@@ -12,4 +12,5 @@
     public DateTime ModifiedDate { get; set; }
     public bool IsCompleted { get; set; }
     public string Notes { get; set; }
+    public string CompletionNotes { get; set; }
 }

@@ -14,7 +14,6 @@ namespace Infrastructure
         {
             using (var connection = new SqlConnection(_defaultConnectionString))
             {
-                entity.EstimatedCompletionDate = TimeZoneInfo.ConvertTimeFromUtc(entity.EstimatedCompletionDate, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")); 
                 var taskRepo = new ToDoTaskRepository(connection);
                 return taskRepo.InsertSql(DataAccessConstants.InsertIntoToDoTasksSql(), entity); 
             }
@@ -25,7 +24,6 @@ namespace Infrastructure
         {
             using (var connection = new SqlConnection(_defaultConnectionString))
             {
-                entity.CreatedDate = TimeZoneInfo.ConvertTimeFromUtc(entity.CreatedDate, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
                 var taskRepo = new ToDoTaskRepository(connection);
                 return taskRepo.InsertUsingSP(DataAccessConstants.InsertIntoToDoTasksSP, entity);
             }
@@ -44,12 +42,12 @@ namespace Infrastructure
         }
 
         // updates a ToDoTask in the database by it's TaskId 
-        public int UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string notes)
+        public int UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string completionNotes)
         {
             using (var connection = new SqlConnection(_defaultConnectionString))
             {
                 var taskRepo = new ToDoTaskRepository(connection);
-                return taskRepo.Update(DataAccessConstants.UpdateToDoTaskByTaskId(completionDate, taskId, notes)); 
+                return taskRepo.Update(DataAccessConstants.UpdateToDoTaskByTaskId(completionDate, taskId, completionNotes)); 
             }
         }
 

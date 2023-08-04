@@ -31,9 +31,9 @@ public class ToDoTaskController : ControllerBase
     }
 
     [HttpPut]
-    public string UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string notes)
+    public string UpdateToDoTaskByTaskId(DateTime completionDate, int taskId, string completionNotes)
     {
-        var result = _appRepository.UpdateToDoTaskByTaskId(completionDate, taskId, notes);
+        var result = _appRepository.UpdateToDoTaskByTaskId(completionDate, taskId, completionNotes);
         return result > 0 ? "Succesfully updated a record in the database. " : "Failed to UPDATE the database.";
     }
 
