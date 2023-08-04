@@ -33,20 +33,19 @@
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
+            label9 = new Label();
+            completionNotes_TextBox = new TextBox();
+            deleteBtn = new Button();
             isCompleted_CheckBox = new CheckBox();
             exitBtn = new Button();
-            modifiedDate_DateTimePicker = new DateTimePicker();
-            createdDate_DateTimePicker = new DateTimePicker();
-            compDate_DateTimePicker = new DateTimePicker();
+            completionDate_DateTimePicker = new DateTimePicker();
             estCompDate_DateTimePicker = new DateTimePicker();
-            label9 = new Label();
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
-            label13 = new Label();
             notes_TextBox = new TextBox();
             label14 = new Label();
-            desc_TextBox = new TextBox();
+            description_TextBox = new TextBox();
             label8 = new Label();
             taskName_TextBox = new TextBox();
             label7 = new Label();
@@ -60,6 +59,7 @@
             taskId_TextBox = new TextBox();
             submitBtn = new Button();
             label2 = new Label();
+            tabPage4 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             SuspendLayout();
@@ -78,6 +78,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(12, 27);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -106,20 +107,19 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(label9);
+            tabPage3.Controls.Add(completionNotes_TextBox);
+            tabPage3.Controls.Add(deleteBtn);
             tabPage3.Controls.Add(isCompleted_CheckBox);
             tabPage3.Controls.Add(exitBtn);
-            tabPage3.Controls.Add(modifiedDate_DateTimePicker);
-            tabPage3.Controls.Add(createdDate_DateTimePicker);
-            tabPage3.Controls.Add(compDate_DateTimePicker);
+            tabPage3.Controls.Add(completionDate_DateTimePicker);
             tabPage3.Controls.Add(estCompDate_DateTimePicker);
-            tabPage3.Controls.Add(label9);
             tabPage3.Controls.Add(label10);
             tabPage3.Controls.Add(label11);
             tabPage3.Controls.Add(label12);
-            tabPage3.Controls.Add(label13);
             tabPage3.Controls.Add(notes_TextBox);
             tabPage3.Controls.Add(label14);
-            tabPage3.Controls.Add(desc_TextBox);
+            tabPage3.Controls.Add(description_TextBox);
             tabPage3.Controls.Add(label8);
             tabPage3.Controls.Add(taskName_TextBox);
             tabPage3.Controls.Add(label7);
@@ -138,13 +138,39 @@
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(768, 383);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "ToDoTasks";
+            tabPage3.Text = "Add/Update ToDoTasks";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(60, 245);
+            label9.Name = "label9";
+            label9.Size = new Size(110, 15);
+            label9.TabIndex = 29;
+            label9.Text = "Completion Notes: ";
+            // 
+            // completionNotes_TextBox
+            // 
+            completionNotes_TextBox.Location = new Point(60, 263);
+            completionNotes_TextBox.Name = "completionNotes_TextBox";
+            completionNotes_TextBox.Size = new Size(206, 23);
+            completionNotes_TextBox.TabIndex = 30;
+            // 
+            // deleteBtn
+            // 
+            deleteBtn.Location = new Point(336, 316);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(75, 23);
+            deleteBtn.TabIndex = 28;
+            deleteBtn.Text = "&Delete";
+            deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
             // 
             // isCompleted_CheckBox
             // 
             isCompleted_CheckBox.AutoSize = true;
-            isCompleted_CheckBox.Location = new Point(484, 267);
+            isCompleted_CheckBox.Location = new Point(272, 267);
             isCompleted_CheckBox.Name = "isCompleted_CheckBox";
             isCompleted_CheckBox.Size = new Size(150, 19);
             isCompleted_CheckBox.TabIndex = 27;
@@ -153,7 +179,7 @@
             // 
             // exitBtn
             // 
-            exitBtn.Location = new Point(380, 317);
+            exitBtn.Location = new Point(417, 316);
             exitBtn.Name = "exitBtn";
             exitBtn.Size = new Size(75, 23);
             exitBtn.TabIndex = 26;
@@ -161,26 +187,12 @@
             exitBtn.UseVisualStyleBackColor = true;
             exitBtn.Click += exitBtn_Click;
             // 
-            // modifiedDate_DateTimePicker
-            // 
-            modifiedDate_DateTimePicker.Location = new Point(60, 265);
-            modifiedDate_DateTimePicker.Name = "modifiedDate_DateTimePicker";
-            modifiedDate_DateTimePicker.Size = new Size(206, 23);
-            modifiedDate_DateTimePicker.TabIndex = 22;
-            // 
-            // createdDate_DateTimePicker
-            // 
-            createdDate_DateTimePicker.Location = new Point(484, 203);
-            createdDate_DateTimePicker.Name = "createdDate_DateTimePicker";
-            createdDate_DateTimePicker.Size = new Size(206, 23);
-            createdDate_DateTimePicker.TabIndex = 18;
-            // 
             // compDate_DateTimePicker
             // 
-            compDate_DateTimePicker.Location = new Point(272, 203);
-            compDate_DateTimePicker.Name = "compDate_DateTimePicker";
-            compDate_DateTimePicker.Size = new Size(206, 23);
-            compDate_DateTimePicker.TabIndex = 17;
+            completionDate_DateTimePicker.Location = new Point(272, 203);
+            completionDate_DateTimePicker.Name = "compDate_DateTimePicker";
+            completionDate_DateTimePicker.Size = new Size(206, 23);
+            completionDate_DateTimePicker.TabIndex = 17;
             // 
             // estCompDate_DateTimePicker
             // 
@@ -188,15 +200,6 @@
             estCompDate_DateTimePicker.Name = "estCompDate_DateTimePicker";
             estCompDate_DateTimePicker.Size = new Size(206, 23);
             estCompDate_DateTimePicker.TabIndex = 16;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(484, 185);
-            label9.Name = "label9";
-            label9.Size = new Size(81, 15);
-            label9.TabIndex = 15;
-            label9.Text = "Created Date: ";
             // 
             // label10
             // 
@@ -210,7 +213,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(272, 247);
+            label11.Location = new Point(484, 188);
             label11.Name = "label11";
             label11.Size = new Size(44, 15);
             label11.TabIndex = 21;
@@ -219,24 +222,15 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(484, 247);
+            label12.Location = new Point(272, 247);
             label12.Name = "label12";
             label12.Size = new Size(83, 15);
             label12.TabIndex = 20;
             label12.Text = "Is Completed: ";
             // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(61, 247);
-            label13.Name = "label13";
-            label13.Size = new Size(88, 15);
-            label13.TabIndex = 19;
-            label13.Text = "Modified Date: ";
-            // 
             // notes_TextBox
             // 
-            notes_TextBox.Location = new Point(272, 265);
+            notes_TextBox.Location = new Point(484, 206);
             notes_TextBox.Name = "notes_TextBox";
             notes_TextBox.Size = new Size(206, 23);
             notes_TextBox.TabIndex = 24;
@@ -252,10 +246,10 @@
             // 
             // desc_TextBox
             // 
-            desc_TextBox.Location = new Point(484, 143);
-            desc_TextBox.Name = "desc_TextBox";
-            desc_TextBox.Size = new Size(206, 23);
-            desc_TextBox.TabIndex = 12;
+            description_TextBox.Location = new Point(484, 143);
+            description_TextBox.Name = "desc_TextBox";
+            description_TextBox.Size = new Size(206, 23);
+            description_TextBox.TabIndex = 12;
             // 
             // label8
             // 
@@ -347,11 +341,11 @@
             // 
             // submitBtn
             // 
-            submitBtn.Location = new Point(299, 317);
+            submitBtn.Location = new Point(255, 316);
             submitBtn.Name = "submitBtn";
             submitBtn.Size = new Size(75, 23);
             submitBtn.TabIndex = 25;
-            submitBtn.Text = "&Submit";
+            submitBtn.Text = "&Save";
             submitBtn.UseVisualStyleBackColor = true;
             submitBtn.Click += submitBtn_Click;
             // 
@@ -363,6 +357,16 @@
             label2.Size = new Size(45, 15);
             label2.TabIndex = 1;
             label2.Text = "Task Id:";
+            // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(768, 383);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "View ToDoTasks";
+            tabPage4.UseVisualStyleBackColor = true;
             // 
             // ToDoApp
             // 
@@ -388,14 +392,12 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private DateTimePicker estCompDate_DateTimePicker;
-        private Label label9;
         private Label label10;
         private Label label11;
         private Label label12;
-        private Label label13;
         private TextBox notes_TextBox;
         private Label label14;
-        private TextBox desc_TextBox;
+        private TextBox description_TextBox;
         private Label label8;
         private TextBox taskName_TextBox;
         private Label label7;
@@ -410,9 +412,11 @@
         private Button submitBtn;
         private Label label2;
         private Button exitBtn;
-        private DateTimePicker modifiedDate_DateTimePicker;
-        private DateTimePicker createdDate_DateTimePicker;
-        private DateTimePicker compDate_DateTimePicker;
+        private DateTimePicker completionDate_DateTimePicker;
         private CheckBox isCompleted_CheckBox;
+        private Button deleteBtn;
+        private Label label9;
+        private TextBox completionNotes_TextBox;
+        private TabPage tabPage4;
     }
 }
