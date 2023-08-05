@@ -35,7 +35,7 @@ public class Program
             if (input == "exit" || input == "stop")
                 break;
 
-            // extract the zip code and print 
+            // prints whether a given number is negative, zero, or positive 
             IntCompZero(int.Parse(input));
 
         }

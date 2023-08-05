@@ -30,7 +30,7 @@ public class Program
             if (input == "exit" || input == "stop")
                 break;
 
-            // makes change and displays the result 
+            // displays whether the given numbers are in order, or not in order
             Ordered(input); 
 
         }
