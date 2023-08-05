@@ -1,7 +1,7 @@
 ﻿/*********************************************************************************************
  * Name: Sam Leal 
  * Date: 08/05/2023 
- * Filename: AllSame.cs 
+ * Filename: JustLoops.cs 
  * Description: Carry out Programming Exercise P4.1 on page 188 of the book. However, instead of 
  * writing your solution as 5 separate programs, write it as a single program that carries out the 
  * five parts of this exercise one by one. Call your program JustLoops. 
