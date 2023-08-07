@@ -1,7 +1,7 @@
 ﻿/*********************************************************************************************
  * Name: Sam Leal 
  * Date: 08/06/2023 
- * Filename: ArrayExercises.cs 
+ * Filename: ArrayEquals.cs 
  * Description: Write a program called ArrayEquals to test your equals() method: this program repeatedly 
  * asks the user to enter (a) a positive integer between 1 and 10 (inclusive) which is the length of the 
  * two arrays you’ll be comparing, (b) a series of integers which are the contents of the first array, and 
