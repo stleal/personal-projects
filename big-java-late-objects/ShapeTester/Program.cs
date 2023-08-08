@@ -26,47 +26,164 @@ public class Program
     {
 
         // declare local variables 
+        bool running; 
         double r, h, mass; 
 
         // initialize local variables 
-        r = 0.94;
-        h = 1.03;
-        mass = ConvertLbsToKgs(120); 
+        running = true; 
 
-        // sphere 
-        Shape sphere = new Shape(r, null);
-        Console.WriteLine("Volume of a Sphere with a radius of " + r + " = " + sphere.SphereVolume()); 
-        Console.WriteLine("Surface area of a Sphere with a radius of " + r + " = " + sphere.SphereSurface());
+        // infinite loop 
+        while (running)
+        {
 
-        // cylinder 
-        Shape cylinder = new Shape(r, h);
-        Console.WriteLine("Volume of a Cylinder with a radius of " + r + " and height of " + h + " = " + cylinder.CylinderVolume());
-        Console.WriteLine("Surface area a Cylinder with a radius of " + r + " and height of " + h + " = " + cylinder.CylinderSurface());
+            // prompt the user for input 
+            Console.Write("Please enter a value for radius: ");
 
-        // cone 
-        Shape cone = new Shape(r, h);
-        Console.WriteLine("Volume of a Cone with a radius of " + r + " and height of " + h + " = " + cone.ConeVolume());
-        Console.WriteLine("Surface area a Cone with a radius of " + r + " and height of " + h + " = " + cone.ConeSurface());
+            // get user input 
+            r = Double.Parse(Console.ReadLine());
 
-        // additional physics exercises 
-        // density of a sphere 
-        sphere = new Shape(r, null, mass);
-        Console.WriteLine("Density of a Sphere with a mass of " + mass + "kgs = " + sphere.SphereDensity());
+            // prompt the user for input 
+            Console.Write("Please enter a value for height: ");
 
-        // density of a cylinder 
-        cylinder = new Shape(r, h, mass);
-        Console.WriteLine("Density of a Cylinder with a mass of " + mass + "kgs = " + cylinder.CylinderDensity());
+            // get user input 
+            h = Double.Parse(Console.ReadLine());
 
-        // density of a cone 
-        cone = new Shape(r, h, mass);
-        Console.WriteLine("Density of a Cone with a mass of " + mass + "kgs = " + cone.ConeDensity());
+            // prompt the user for input 
+            Console.Write("Please enter a value for the mass: ");
 
+            // get user input 
+            mass = ConvertLbsToKgs(Double.Parse(Console.ReadLine()));
+
+            // print a blank line 
+            Console.WriteLine();
+
+            // sphere 
+            SphereVolume(r);
+            SphereSurface(r);
+            SphereDensity(r, mass);
+            SphereWeight(r, mass);
+            SphereThrow(r, mass, 60, 0, 8); 
+
+            // cylinder 
+            CylinderVolume(r, h);
+            CylinderSurface(r, h);
+            CylinderDensity(r, h, mass);
+            CylinderWeight(r, h, mass);
+
+            // cone 
+            ConeVolume(r, h);
+            ConeSurface(r, h);
+            ConeDensity(r, h, mass);
+            ConeWeight(r, h, mass); 
+
+            // print a blank line 
+            Console.WriteLine(); 
+
+        }
+    }
+
+    // prints the Volume of a sphere 
+    public static void SphereVolume(double r)
+    {
+        Sphere s = new Sphere(r);
+        s.PrintSphereVolume(); 
+    }
+
+    // prints the Surface area of a sphere 
+    public static void SphereSurface(double r)
+    {
+        Sphere s = new Sphere(r);
+        s.PrintSphereSurface();
+    }
+
+    // prints the density of a sphere 
+    public static void SphereDensity(double r, double mass)
+    {
+        Sphere s = new Sphere(r, mass: mass);
+        s.PrintSphereDensity();
+    }
+
+    // prints the weight of a sphere 
+    public static void SphereWeight(double r, double mass)
+    {
+        Sphere s = new Sphere(r, mass: mass);
+        s.PrintSphereWeight();
+    }
+
+    // prints the acceleration of a Sphere 
+    public static void SphereThrow(double r, double mass, double vi, double vf, double t)
+    {
+        Sphere s = new Sphere(r, mass: mass);
+        s.SphereThrow(ConvertMphToMps(vi), ConvertMphToMps(vf), t);
+        s.PrintSphereAcceleration(); 
+    }
+
+    // prints the Volume of a cylinder 
+    public static void CylinderVolume(double r, double h)
+    {
+        Cylinder c = new Cylinder(r, h);
+        c.PrintCylinderVolume(); 
+    }
+
+    // prints the Surface area of a cylinder 
+    public static void CylinderSurface(double r, double h)
+    {
+        Cylinder c = new Cylinder(r, h);
+        c.PrintCylinderSurface(); 
+    }
+
+    // prints the density of a cylinder 
+    public static void CylinderDensity(double r, double h, double mass)
+    {
+        Cylinder c = new Cylinder(r, h, mass);
+        c.PrintCylinderDensity();
+    }
+
+    // prints the weight of a cylinder 
+    public static void CylinderWeight(double r, double h, double mass)
+    {
+        Cylinder c = new Cylinder(r, h, mass);
+        c.PrintCylinderWeight(); 
+    }
+
+    // prints the Volume of a cone 
+    public static void ConeVolume(double r, double h)
+    {
+        Cone c = new Cone(r, h);
+        c.PrintConeVolume(); 
+    }
+
+    // prints the Surface area of a cone 
+    public static void ConeSurface(double r, double h)
+    {
+        Cone c = new Cone(r, h);
+        c.PrintConeSurface();
+    }
+
+    // prints the density of a cone 
+    public static void ConeDensity(double r, double h, double mass)
+    {
+        Cone c = new Cone(r, h, mass);
+        c.PrintConeDensity();
+    }
+
+    // prints the weight of a cone  
+    public static void ConeWeight(double r, double h, double mass)
+    {
+        Cone c = new Cone(r, h, mass);
+        c.PrintConeWeight();
     }
 
     // converts lbs to kgs 
     public static double ConvertLbsToKgs(double lbs)
     {
         return (lbs * 0.453592); 
+    }
+
+    // converts mph to mps 
+    public static double ConvertMphToMps(double mph)
+    {
+        return (mph * 0.44704);
     }
 
 }
