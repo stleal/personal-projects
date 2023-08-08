@@ -30,8 +30,12 @@ public class Shape
     private double? _surfaceArea; // surface area 
     private double? _density; // density 
     private double? _mass; // mass 
-    private double? _weight; // weight 
+    private double? _weight; // weight = Force => newtons/kg 
     private const double ACCELERATION_OF_GRAVITY = 9.8; // meters per second squared 
+    private double? _a; // acceleration 
+    private double? _vi; // initial velocity 
+    private double? _vf; // final velocity 
+    private double? _t; // time 
 
     // default constructor 
     public Shape()
@@ -43,73 +47,82 @@ public class Shape
         _density = null;
         _mass = null;
         _weight = null;
+        _a = null;
     }
 
-    // Shape constructor 01
-    public Shape(double? r = null, double? h = null)
+    // Shape constructor  
+    public Shape(double? r = null, double? h = null, double? mass = null)
     {
         _r = r;
         _h = h;
+        _mass = mass;
+        _weight = (_mass != null) ? (_mass * ACCELERATION_OF_GRAVITY) : null;
     }
 
-    // Shape constructor 02 
-    public Shape(double? r = null, double? h = null, double? mass = null)
+    // gets the radius of the Shape 
+    public double GetRadius()
     {
-        _r = r; 
-        _h = h; 
-        _mass = mass; 
+        return (double)_r;
     }
 
-    // returns the volume of a sphere 
-    public double SphereVolume()
+    // gets the height of the Shape 
+    public double GetHeight()
     {
-        return ((4 / 3) * Math.PI * Math.Pow((double)_r, 3));
+        return (double)_h;
     }
 
-    // returns the surface area of a sphere 
-    public double SphereSurface()
+    // gets the mass of the Shape 
+    public double GetMass()
     {
-        return ((4) * Math.PI * Math.Pow((double)_r, 2)); 
+        return (double)_mass;
     }
 
-    // calculates and returns the density 
-    public double SphereDensity()
+    // gets the weight of the Shape 
+    public double GetWeight()
     {
-        return ((double)(_mass / SphereVolume()));
+        return (double)_weight;
     }
 
-    // returns the volume of a cylinder 
-    public double CylinderVolume()
+    // gets the acceleration of the Shape 
+    public double GetAcceleration()
     {
-        return ((double)(Math.PI * Math.Pow((double)_r, 2) * _h)); 
+        return (double)_a;
     }
 
-    // returns the surface area of a cylinder 
-    public double CylinderSurface()
+    // gets the initial velocity of the Shape 
+    public double GetVelocityInitial()
     {
-        return ((double)((2 * Math.PI * _r * _h) + (2 * Math.PI * Math.Pow((double)_r, 2)))); 
+        return (double)_vi;
     }
 
-    public double CylinderDensity()
+    // sets the initial velocity of the Shape 
+    public void SetVelocityInitial(double vi)
     {
-        return ((double)(_mass / CylinderVolume()));
+        _vi = vi;
     }
 
-    // returns the volume of a cone 
-    public double ConeVolume()
+    // sets the final velocity of the Shape 
+    public void SetVelocityFinal(double vf)
     {
-        return ((double)(Math.PI * Math.Pow((double)_r, 2) * (_h/3))); 
+        _vf = vf;
     }
 
-    // returns the surface area of a cone 
-    public double ConeSurface()
+    // sets the time in momentum 
+    public void SetTime(double t)
     {
-        return ((double)(Math.PI * _r * (_r + Math.Sqrt(Math.Pow((double)_h, 2) + Math.Pow((double)_r, 2))))); 
+        _t = t; 
     }
 
-    public double ConeDensity()
+    // sets the acceleration of the Shape 
+    public void SetAcceleration(double? a)
     {
-        return ((double)(_mass / ConeVolume()));
+        _a = a;
+    }
+
+    // calculates the acceleration 
+    public void CalculateAcceleration()
+    {
+        SetAcceleration((_vf - _vi) / _t); 
     }
 
 }
