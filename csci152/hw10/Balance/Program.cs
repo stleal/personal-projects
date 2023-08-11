@@ -33,6 +33,9 @@ public class Program
         // prints the ending Balance 
         Console.WriteLine("The ending balance of the account after " + t + " years, is: " + a);
 
+        // keep the application open 
+        Console.ReadLine(); 
+
     }
 
     // computes the ending Balance of the account 
@@ -51,7 +54,7 @@ public class Program
         r = apr/100; // the interest rate as a decimal (apr/100) 
 
         // compute the ending balance 
-        a = p * Math.Pow((1 + (r/n)), (n*t)); 
+        a = p * Math.Pow((1 + (r/n)), (n*t*12)); 
 
         // returns the ending Balance  
         return a;
