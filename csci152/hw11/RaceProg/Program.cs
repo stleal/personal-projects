@@ -34,6 +34,9 @@ public class Program
             Console.WriteLine(); 
         }
 
+        // keep the application running 
+        Console.ReadLine(); 
+
     }
 
     // returns a string with the die values 
