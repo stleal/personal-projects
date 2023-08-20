@@ -207,6 +207,7 @@ public class Program
         // prints the linked list
         carList.PrintCarListBasic();
         Console.WriteLine();
+
     }
 
     // insert Car Nodes at the end of the list in no particular order 
