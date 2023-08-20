@@ -43,8 +43,12 @@ public class Car
 {
 
     // global variables 
+    private int _year; 
     private string _make;
-    private int _price; 
+    private int _price;
+    private string _model;
+    private string _trim; 
+    private string _color; 
 
     public Car()
     {
@@ -52,8 +56,26 @@ public class Car
 
     public Car(string make, int price)
     {
+        _make = make;
+        _price = price;
+    }
+
+    public Car(int year, string make, int price, string model, string? trim, string color)
+    {
+        _year = year;
         _make = make; 
         _price = price; 
+        _model = model;
+        _trim = (trim == null) ? "" : trim;
+        _color = color;
+    }
+
+    public string GetYearMakeModelColor()
+    {
+        string yearMakeModelColor;
+        yearMakeModelColor = (_trim == "") ? _year + " " + _make + " " + _model + ", " + _color + ", " + _price : 
+            _year + " " + _make + " " + _model + " " + _trim + ", " + _color + ", " + _price; 
+        return yearMakeModelColor; 
     }
 
     public string GetMake()
@@ -64,6 +86,11 @@ public class Car
     public int GetPrice()
     {
         return _price;
+    } 
+
+    public int GetYear()
+    {
+        return _year; 
     }
 
 }
