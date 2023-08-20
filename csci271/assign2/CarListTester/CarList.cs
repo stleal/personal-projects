@@ -140,21 +140,129 @@ public class CarList
         _cursor = _tail;
     }
 
+    // removes the first occurence of a specified car by year, make, and price from the linked list 
+    public CarNode RemoveCarNode(int year, string make, int price)
+    {
+        CarNode c;
+        c = new CarNode();
+        for (_cursor = _head; _cursor != null; _cursor = _cursor.GetNext())
+        {
+            if ((_cursor.GetCar().GetPrice() == price) && (_cursor.GetCar().GetMake() == make) && 
+                (_cursor.GetCar().GetYear() == year))
+            {
+                if (_cursor == _head)
+                {
+                    c = _head;
+                    _cursor = _head.GetNext();
+                    _cursor.SetPrevious(null);
+                    _head = _cursor;
+                }
+                else if (_cursor == _tail)
+                {
+                    c = _tail;
+                    _tail.GetPrevious().SetNext(null);
+                    _tail = _tail.GetPrevious();
+                }
+                else if ((_cursor != _head) && (_cursor != _tail))
+                {
+                    c = _cursor;
+                    _cursor.GetPrevious().SetNext(_cursor.GetNext());
+                    _cursor.GetNext().SetPrevious(_cursor.GetPrevious());
+                }
+                break; 
+            }
+        }
+        _counter--;
+        return c;
+    }
+
+    // removes the first occurence of a specified car by price from the linked list 
+    public CarNode RemoveCarNode(int price)
+    {
+        CarNode c; 
+        c = new CarNode(); 
+        for (_cursor = _head; _cursor != null; _cursor = _cursor.GetNext())
+        {
+            if (_cursor.GetCar().GetPrice() == price)
+            {
+                if (_cursor == _head)
+                {
+                    c = _head;
+                    _cursor = _head.GetNext();
+                    _cursor.SetPrevious(null);
+                    _head = _cursor;
+                }
+                else if (_cursor == _tail)
+                {
+                    c = _tail;
+                    _tail.GetPrevious().SetNext(null);
+                    _tail = _tail.GetPrevious();
+                }
+                else if ((_cursor != _head) && (_cursor != _tail))
+                {
+                    c = _cursor; 
+                    _cursor.GetPrevious().SetNext(_cursor.GetNext());
+                    _cursor.GetNext().SetPrevious(_cursor.GetPrevious());
+                }
+                break;
+            }
+        }
+        _counter--; 
+        return c; 
+    }
+
+    // returns the size of the linked list 
+    public int GetSize()
+    {
+        return _counter; 
+    }
+
+    // returns whether or not the list is empty 
+    public bool IsEmpty()
+    {
+        return (_counter == 0); 
+    } 
+
+    // returns the first element in the list 
+    public CarNode GetFirst()
+    {
+        return _head; 
+    } 
+
+    // returns the last element in the list 
+    public CarNode GetLast()
+    {
+        return _tail; 
+    } 
+
+    // returns the element at the specified index 
+    public CarNode GetNodeAt(int index)
+    {
+        _cursor = _head; 
+        for (int i = 0; i < index; i++)
+        {
+            _cursor = _cursor.GetNext(); 
+        }
+        return _cursor; 
+    }
+
+    // prints the linked list of cars with their make and price 
     public void PrintCarListBasic()
     {
         for (_cursor = _head; _cursor != null; _cursor = _cursor.GetNext())
         {
-            Console.WriteLine("Car: " + _cursor.GetCar().GetMake() + ", " + _cursor.GetCar().GetPrice()); 
+            Console.WriteLine("Car: " + _cursor.GetCar().GetYearMakeModelColor()); 
         }
     }   
 
+    // prints a more detailed report of the linked list of cars with their previous and next Car Nodes
     public void PrintCarListFull()
     {
         for (_cursor = _head; _cursor != null; _cursor = _cursor.GetNext())
         {
-            Console.WriteLine("Car: " + _cursor.GetCar().GetMake() + ", " + _cursor.GetCar().GetPrice());
-            Console.WriteLine("Previous: " + _cursor.GetPrevious()?.GetCar().GetMake());
-            Console.WriteLine("Next: " + _cursor.GetNext()?.GetCar().GetMake());
+            Console.WriteLine("Car: " + _cursor.GetCar().GetYearMakeModelColor());
+            Console.WriteLine("Previous: " + _cursor.GetPrevious()?.GetCar().GetYearMakeModelColor());
+            Console.WriteLine("Next: " + _cursor.GetNext()?.GetCar().GetYearMakeModelColor());
             Console.WriteLine(); 
         }
     }

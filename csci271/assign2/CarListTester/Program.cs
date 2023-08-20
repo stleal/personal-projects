@@ -46,9 +46,10 @@ public class Program
     public static void Main(string[] args)
     {
         InsertCarNodesInOrder();
-        InsertCarNodes(); 
+        InsertCarNodes();
     }
 
+    // insert Car Nodes in order 
     public static void InsertCarNodesInOrder()
     {
 
@@ -61,47 +62,62 @@ public class Program
         carList = new CarList();
 
         // inserts a new Car Node
-        car = new Car("2023 Nissan Rogue, All Black", 27500);
+        car = new Car(2023, "Nissan", 27500, "Rogue", null, "Black"); 
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2021 Chevrolet Silverado, All Black", 26500);
+        car = new Car(2021, "Chevrolet", 26500, "Silverado", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2024 Tesla, Dark Navy Blue", 36500);
+        car = new Car(2024, "Tesla", 36500, "Model S", null, "Dark Navy Blue");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2024 Tesla, All Black", 36500);
+        car = new Car(2024, "Tesla", 36500, "Model S", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2022 Toyota RAV4 LE, All Black", 30000);
+        car = new Car(2022, "Toyota", 30000, "RAV4", "LE", "Black");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2024 BMW X6, All White", 46500);
+        car = new Car(2024, "BMW", 46500, "X6", null, "White");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2021 Chevrolet Silverado, All Black", 26500);
+        car = new Car(2021, "Chevrolet", 26500, "Silverado", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2022 Honda CRV, Dark Gray", 28000);
+        car = new Car(2022, "Honda", 28000, "CRV", null, "Dark Gray");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
         // inserts a new Car Node
-        car = new Car("2022 Toyota RAV4 LE, All Black", 30000);
+        car = new Car(2022, "Toyota", 30000, "RAV4", "LE", "Black");
+        carNode = new CarNode(car);
+        carList.InsertCarNodeInOrder(carNode);
+
+        // inserts a new Car Node
+        car = new Car(2024, "Audi", 46500, "A4", null, "White");
+        carNode = new CarNode(car);
+        carList.InsertCarNodeInOrder(carNode);
+
+        // inserts a new Car Node
+        car = new Car(2024, "Audi", 65000, "A4", null, "White");
+        carNode = new CarNode(car);
+        carList.InsertCarNodeInOrder(carNode);
+
+        // inserts a new Car Node
+        car = new Car(2024, "BMW", 65000, "X6", null, "White");
         carNode = new CarNode(car);
         carList.InsertCarNodeInOrder(carNode);
 
@@ -112,8 +128,88 @@ public class Program
         // prints a more detailed report of the linked list 
         carList.PrintCarListFull();
 
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+
+        // prints whether or not the linked list is empty 
+        Console.WriteLine("Is Empty?: " + carList.IsEmpty());
+
+        // prints the first Node in the list 
+        Console.WriteLine("First: " + carList.GetFirst().GetCar().GetMake() + ", " + carList.GetFirst().GetCar().GetPrice());
+
+        // prints the last Node in the list 
+        Console.WriteLine("Last: " + carList.GetLast().GetCar().GetMake() + ", " + carList.GetLast().GetCar().GetPrice());
+
+        // prints the Node at the specified index 
+        Console.WriteLine("Car at index " + 6 + ": " + carList.GetNodeAt(6).GetCar().GetMake() + ", " + carList.GetNodeAt(6).GetCar().GetPrice());
+
+        // prints the Node at the specified index 
+        Console.WriteLine("Car at index " + 0 + ": " + carList.GetNodeAt(0).GetCar().GetMake() + ", " + carList.GetNodeAt(0).GetCar().GetPrice());
+
+        // prints the Node at the specified index 
+        Console.WriteLine("Car at index " + (carList.GetSize() - 1) + ": " + carList.GetNodeAt(carList.GetSize()-1).GetCar().GetMake() + ", " + carList.GetNodeAt(carList.GetSize()-1).GetCar().GetPrice());
+
+        // prints a blank link 
+        Console.WriteLine();
+
+        // removes a Car Node 
+        carNode = carList.RemoveCarNode(26500);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
+
+        // removes a Car Node 
+        carNode = carList.RemoveCarNode(28000);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
+
+        // removes a Car Node 
+        carNode = carList.RemoveCarNode(46500);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
+
+        // removes a Car Node from the linked list by year, make, and price 
+        carNode = carList.RemoveCarNode(2024, "BMW", 46500);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // removes a Car Node from the linked list by year, make, and price 
+        carNode = carList.RemoveCarNode(2024, "BMW", 65000);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
     }
 
+    // insert Car Nodes at the end of the list in no particular order 
     public static void InsertCarNodes()
     {
 
@@ -126,47 +222,47 @@ public class Program
         carList = new CarList();
 
         // inserts a new Car Node
-        car = new Car("2023 Nissan Rogue, All Black", 27500);
+        car = new Car(2023, "Nissan", 27500, "Rogue", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2021 Chevrolet Silverado, All Black", 26500);
+        car = new Car(2021, "Chevrolet", 26500, "Silverado", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2024 Tesla, Dark Navy Blue", 36500);
+        car = new Car(2024, "Tesla", 36500, "Model S", null, "Dark Navy Blue");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2024 Tesla, All Black", 36500);
+        car = new Car(2024, "Tesla", 36500, "Model S", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2022 Toyota RAV4 LE, All Black", 30000);
+        car = new Car(2022, "Toyota", 30000, "RAV4", "LE", "Black");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2024 BMW X6, All White", 46500);
+        car = new Car(2024, "BMW", 46500, "X6", null, "White");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2021 Chevrolet Silverado, All Black", 26500);
+        car = new Car(2021, "Chevrolet", 26500, "Silverado", null, "Black");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2022 Honda CRV, Dark Gray", 28000);
+        car = new Car(2022, "Honda", 28000, "CRV", null, "Dark Gray");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
         // inserts a new Car Node
-        car = new Car("2022 Toyota RAV4 LE, All Black", 30000);
+        car = new Car(2022, "Toyota", 30000, "RAV4", "LE", "Black");
         carNode = new CarNode(car);
         carList.InsertCarNode(carNode);
 
@@ -176,6 +272,72 @@ public class Program
 
         // prints a more detailed report of the linked list 
         carList.PrintCarListFull();
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+
+        // prints whether or not the linked list is empty 
+        Console.WriteLine("Is Empty?: " + carList.IsEmpty());
+
+        // prints the first Node in the list 
+        Console.WriteLine("First: " + carList.GetFirst().GetCar().GetMake() + ", " + carList.GetFirst().GetCar().GetPrice());
+
+        // prints the last Node in the list 
+        Console.WriteLine("Last: " + carList.GetLast().GetCar().GetMake() + ", " + carList.GetLast().GetCar().GetPrice());
+
+        // prints the Node at the specified index 
+        Console.WriteLine("Car at index " + 6 + ": " + carList.GetNodeAt(6).GetCar().GetMake() + ", " + carList.GetNodeAt(6).GetCar().GetPrice());
+
+        // prints the Node at the specified index 
+        Console.WriteLine("Car at index " + 0 + ": " + carList.GetNodeAt(0).GetCar().GetMake() + ", " + carList.GetNodeAt(0).GetCar().GetPrice());
+
+        // prints the Node at the specified index 
+        Console.WriteLine("Car at index " + (carList.GetSize() - 1) + ": " + carList.GetNodeAt(carList.GetSize() - 1).GetCar().GetMake() + ", " + carList.GetNodeAt(carList.GetSize() - 1).GetCar().GetPrice());
+
+        // prints a blank link 
+        Console.WriteLine();
+
+        // prints a blank link 
+        Console.WriteLine();
+
+        // removes a Car Node 
+        carNode = carList.RemoveCarNode(26500);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
+
+        // removes a Car Node 
+        carNode = carList.RemoveCarNode(28000);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
+
+        // removes a Car Node 
+        carNode = carList.RemoveCarNode(46500);
+
+        // prints the size of the linked list 
+        Console.WriteLine("Size of the Linked List: " + carList.GetSize());
+        Console.WriteLine("Removed: " + carNode.GetCar().GetYearMakeModelColor() + " from the linked list");
+        Console.WriteLine();
+
+        // prints the linked list
+        carList.PrintCarListBasic();
+        Console.WriteLine();
 
     }
 
