@@ -7,10 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Stack">
-      <HintPath>..\..\..\..\libraries\Stack\bin\Debug\net6.0\Stack.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
