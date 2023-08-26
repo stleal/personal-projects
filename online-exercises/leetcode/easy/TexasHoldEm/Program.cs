@@ -162,6 +162,7 @@ public class Program
                             // sets the bet == to the big blind 
                             _bet = _bigBlind;
 
+                            // repeats until all players are in a checked / "ready" state 
                             takeTurns(); 
 
                             break;
@@ -584,12 +585,12 @@ public class Program
                                         // display a message 
                                         Console.WriteLine("You are calling the Big-Blind amount of: " + _bigBlind);
 
+                                        // subtracts the Big Blind from the player's available Balance 
+                                        _playerBalance -= _bigBlind;
+
                                         // display remaining balance 
                                         Console.WriteLine("Your available Balance after calling the Big-Blind amount: " + _playerBalance);
                                         Console.WriteLine();
-
-                                        // subtracts the Big Blind from the player's available Balance 
-                                        _playerBalance -= _bigBlind; 
 
                                     }
                                     else
@@ -598,12 +599,12 @@ public class Program
                                         // display a message 
                                         Console.WriteLine("You are calling the Computer's bet of: " + _bet);
 
+                                        // subtracts the bet from the players available balance 
+                                        _playerBalance -= _bet;
+
                                         // display remaining balance 
                                         Console.WriteLine("Your available Balance after calling the Computer's bet: " + _playerBalance);
                                         Console.WriteLine();
-
-                                        // subtracts the bet from the players available balance 
-                                        _playerBalance -= _bet;
 
                                     }
 
