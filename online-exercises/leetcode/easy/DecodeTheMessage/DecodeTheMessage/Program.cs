@@ -75,6 +75,7 @@ public class Program
 
     }
 
+    // encodes the message 
     public static string EncodeMessage(string key, string message)
     {
 
@@ -101,6 +102,7 @@ public class Program
 
     }
 
+    // encodes the message from file 
     public static string EncodeMessageFromFile(string key, string filename)
     {
 
@@ -146,6 +148,7 @@ public class Program
 
     }
 
+    // decodes the message 
     public static string DecodeMessage(string key, string encryptedMessage)
     {
 
