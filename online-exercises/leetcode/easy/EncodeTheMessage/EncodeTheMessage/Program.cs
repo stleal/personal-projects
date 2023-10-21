@@ -20,7 +20,6 @@
  * Decoding: 
  * 1) Call the DecodeMessageFromFile("Key.txt", "Output.txt"); 
  * 2) The decrypted message will be found in the DecryptedMessages folder with the "Output.txt" filename 
- * 
 *******************************************************************************************************************************/
 public class Program
 {
