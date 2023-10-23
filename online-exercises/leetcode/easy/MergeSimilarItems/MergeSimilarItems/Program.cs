@@ -51,7 +51,6 @@ public class Program
         MergeSimilarItems(items1, items2);
 
         // example 4 
-        
         // create two 2D integer arrays with a random size between 1-8 
         items1 = new int[r.Next(1, 9), 2];
         items2 = new int[r.Next(1, 9), 2];
@@ -66,7 +65,6 @@ public class Program
         MergeSimilarItems(items1, items2);
 
         // example 5 
-
         // create two 2D integer arrays with a random size between 1-8 
         items1 = new int[r.Next(1, 9), 2];
         items2 = new int[r.Next(1, 9), 2];
