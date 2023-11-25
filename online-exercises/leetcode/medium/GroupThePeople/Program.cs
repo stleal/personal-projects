@@ -7,6 +7,11 @@
  * person i is in. For example, if groupSizes[1] = 3, then person 1 must be in a group of size 3. Return a list of groups such that 
  * each person i is in a group of size groupSizes[i]. Each person should appear in exactly one group, and every person must be in a group. 
  * If there are multiple answers, return any of them. It is guaranteed that there will be at least one valid solution for the given input.   
+ * 
+ * Constraints: (Specific Requirements / Acceptance Criteria) 
+ * groupSizes.length == n  
+ * 1 <= n <= 500 
+ * 1 <= groupSizes[i] <= n
 *********************************************************************************************************************************************/
 public class Program
 {
@@ -32,13 +37,28 @@ public class Program
         answer = GroupThePeople(groupSizes);
 
         // Unit Test Case 04 
-        groupSizes = CreateIntArray(36); 
+        groupSizes = CreateIntArray(8); 
         answer = GroupThePeople(groupSizes);
 
         // Unit Test Case 05 
-        groupSizes = CreateIntArray(36); 
+        groupSizes = CreateIntArray(16); 
         groupSizes = ShuffleArray(groupSizes);
-        answer = GroupThePeople(groupSizes); 
+        answer = GroupThePeople(groupSizes);
+
+        // Unit Test Case 06
+        groupSizes = CreateIntArray(32);
+        groupSizes = ShuffleArray(groupSizes);
+        answer = GroupThePeople(groupSizes);
+
+        // Unit Test Case 07 
+        groupSizes = CreateIntArray(64);
+        groupSizes = ShuffleArray(groupSizes);
+        answer = GroupThePeople(groupSizes);
+
+        // Unit Test Case 08
+        groupSizes = CreateIntArray(128);
+        groupSizes = ShuffleArray(groupSizes);
+        answer = GroupThePeople(groupSizes);
 
     } 
 
@@ -132,11 +152,12 @@ public class Program
      ***********************************************************/
     public static int[] CreateIntArray(int size)
     {
-        int count;
+        int count, triangularNumber; 
         int[] array;
-        count = 0; 
-        array = new int[size]; 
-        for (int i = 0; i < 8; i++)
+        count = 0;
+        triangularNumber = GetTriangluarNumberByFormula(size); 
+        array = new int[triangularNumber]; 
+        for (int i = 0; i < size; i++)
         {
             for (int j = 0; j <= i; j++)
             {
@@ -144,6 +165,25 @@ public class Program
             }
         }
         return array; 
+    } 
+
+    // get the Triangular Number of size using the Triangle Formula 
+    public static int GetTriangluarNumberByFormula(int n)
+    {
+        return (n * (n + 1)) / 2;
+    }
+
+    // get the Triangular Number of n using a while loop 
+    public static int GetTriangluarNumberByLoop(int n)
+    {
+        int i, sum;
+        sum = 0;
+        i = n;
+        while (i > 0)
+        {
+            sum += i--;
+        }
+        return sum;
     }
 
 }
