@@ -32,49 +32,67 @@ public class PerfectNumber
     {
 
         // declare local variables 
-        int n, sum; 
+        int n, sum, i, count; 
 
         // example 1 
         n = 103;
-        sum = GetAliquotSum(n); 
-        Console.WriteLine("Number: " + n + "\n" + "Aliquot Sum: " + sum);
-        Console.WriteLine("Is Perfect: " + IsPerfect(sum, n));
-        Console.WriteLine("Is Abundant: " + IsAbundant(sum, n));
-        Console.WriteLine("Is Deficient: " + IsDeficient(sum, n));
-        Console.WriteLine("Is Prime: " + IsPrime(n));
-        Console.WriteLine(); 
+        sum = GetAliquotSum(n);
+        Print(sum, n); 
 
         // example 2
-        for (int i = 0; i <= 100; i++)
+        for (i = 0; i <= 100; i++)
         {
             n = i; 
             sum = GetAliquotSum(n);
-            Console.WriteLine("Number: " + n + "\n" + "Aliquot Sum: " + sum);
-            Console.WriteLine("Is Perfect: " + IsPerfect(sum, n));
-            Console.WriteLine("Is Abundant: " + IsAbundant(sum, n));
-            Console.WriteLine("Is Deficient: " + IsDeficient(sum, n));
-            Console.WriteLine("Is Prime: " + IsPrime(n));
-            Console.WriteLine();
+            Print(sum, n);
         }
+
+        // example 3
+        // the first 5 Perfect Numbers 
+        count = i = 0; 
+        while (count < 5)
+        {
+            n = i;
+            sum = GetAliquotSum(i);
+            if (IsPerfect(sum, n))
+            {
+                Print(sum, n);
+                count++; 
+            }
+            i++;
+        }
+
+        // example 4
+        // the first 100 Abundant Numbers 
+        count = i = 0;
+        while (count < 100)
+        {
+            n = i;
+            sum = GetAliquotSum(i);
+            if (IsAbundant(sum, n))
+            {
+                Print(sum, n);
+                count++;
+            }
+            i++;
+        }
+
+        Console.ReadLine(); 
 
     }
 
     public static int GetAliquotSum(int n)
     {
-
         int sum;
-
-        sum = 0; 
-        for (int i = 1; i <= n/2; i++)
+        sum = (n != 1) ? 1 : 0; 
+        for (int i = 2; i <= n/2; i++)
         {
             if (IsFactor(i, n))
             {
                 sum += i; 
             }
         }
-
         return sum; 
-
     }
 
     public static bool IsFactor(int x, int n)
@@ -84,21 +102,16 @@ public class PerfectNumber
 
     public static bool IsPrime(int n)
     {
-        int i; 
         bool flag;
-
-        i = 2; 
         flag = false; 
-        while (i <= n/2)
-        {
+        for (int i = 2; i <= n/2; i++)
+        { 
             if (n % i == 0)
             {
                 flag = true;
                 break; 
             }
-            i++; 
         }
-
         return !flag; 
     }
 
@@ -115,6 +128,16 @@ public class PerfectNumber
     public static bool IsDeficient(int aliquotSum, int n)
     {
         return (aliquotSum < n) ? true : false; 
+    } 
+
+    public static void Print(int sum, int n)
+    {
+        Console.WriteLine("Number: " + n + "\n" + "Aliquot Sum: " + sum);
+        Console.WriteLine("Is Perfect: " + IsPerfect(sum, n));
+        Console.WriteLine("Is Abundant: " + IsAbundant(sum, n));
+        Console.WriteLine("Is Deficient: " + IsDeficient(sum, n));
+        Console.WriteLine("Is Prime: " + IsPrime(n));
+        Console.WriteLine();
     }
 
 }
