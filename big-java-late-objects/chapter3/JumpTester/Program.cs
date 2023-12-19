@@ -73,6 +73,12 @@ public class Program
 
         }
 
+        // Unit Test Case 
+        UnitTest();
+
+        // stop 
+        Console.ReadLine(); 
+
     }
 
     // returns the mass of the space Object in kg 
