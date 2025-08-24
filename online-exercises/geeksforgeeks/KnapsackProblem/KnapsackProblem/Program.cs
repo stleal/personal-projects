@@ -69,6 +69,7 @@ public class Program
             {
                 maxPossibleProfit += profits[i];
                 capacity -= weights[i];
+                Console.WriteLine("Adding item with weight: " + weights[i] + " and profit: " + profits[i]);
             }
             i--;
         }
