@@ -20,7 +20,7 @@ public class Program
         year = 1994;
 
         // display the Easter Sunday dates
-        while (year <= 2024)
+        while (year <= 3023)
         {
 
             // compute the date
