@@ -88,7 +88,7 @@
 
     }
 
-    // sorts the stack in ascending order 
+    // sorts the stack in descending order 
     public static Stack SortStackDescending(Stack unsortedStack)
     {
 
